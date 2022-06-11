@@ -25,7 +25,9 @@
     "esModuleInterop": true,
     "paths": {
       "@articles/*": ["src/app/modules/articles/*"],
-      "@layout/*": ["src/app/modules/layout/*"]
+      "@layout/*": ["src/app/modules/layout/*"],
+      "@authentication/*": ["src/app/modules/authentication/*"],
+      "@env/*": ["src/environments/*"]
     }
   },
   "angularCompilerOptions": {

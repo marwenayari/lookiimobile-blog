@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '@authentication/services/authentication.service';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -7,10 +9,23 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isAuthenticated = false;
+  isAuthenticated: boolean = false;
   menuItems: MenuItem[] = [];
 
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {
+    this.authenticationService.getIsAuthenticatedEmitter().subscribe((isAuthenticated: boolean) => this.updateMenu(false, isAuthenticated))
+  }
+
   ngOnInit(): void {
+    this.updateMenu();
+  }
+
+  updateMenu(isOnInitStage = true, isAuthenticated = false): void {
+    this.isAuthenticated = isOnInitStage ? this.authenticationService.isAuthenticated() : isAuthenticated;
+
     this.menuItems = [
       {
         label: 'List Articles',
@@ -37,8 +52,22 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Logout',
         icon: 'pi pi-fw pi-sign-out',
-        visible: this.isAuthenticated
+        visible: this.isAuthenticated,
+        command: (event: Event) => {
+          this.logout()
+        }
       }
     ];
+  }
+
+  logout(): void {
+    this.authenticationService.logout().subscribe(
+      {
+        next: () => {
+          this.router.navigate(['/login'])
+        },
+        error: () => {}
+      }
+    )
   }
 }

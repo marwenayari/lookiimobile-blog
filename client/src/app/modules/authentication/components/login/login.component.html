@@ -1,0 +1,13 @@
+<div>
+    <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="username"> 
+        <label for="float-input">Username</label>
+    </span>
+
+    <span class="p-float-label">
+        <input id="float-input" type="password" pPassword [(ngModel)]="password"> 
+        <label for="float-input">Password</label>
+    </span>
+
+    <button pButton type="button" (click)="login()">Login</button>
+</div>
