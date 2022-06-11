@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArticlesListComponent } from '@articles/pages/articles-list/articles-list.component';
 import { ArticleDetailsComponent } from '@articles/pages/article-details/article-details.component';
 import { AddArticleComponent } from '@articles/pages/add-article/add-article.component';
+import { AuthenticationGuard } from '@authentication/guards/authentication.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'add',
-    component: AddArticleComponent
+    component: AddArticleComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: ':id',

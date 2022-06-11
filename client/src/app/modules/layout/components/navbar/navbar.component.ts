@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Add Article',
         icon: 'pi pi-fw pi-plus',
-        routerLink: ['/add-article'],
+        routerLink: ['/articles/add'],
         visible: this.isAuthenticated
       },
       {
