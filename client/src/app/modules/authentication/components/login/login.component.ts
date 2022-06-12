@@ -9,7 +9,7 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  username!: string;
+  email!: string;
   password!: string;
 
   constructor(
@@ -19,7 +19,7 @@ export class LoginComponent {
   ) {}
 
   login(): void {
-    this.authenticationService.login(this.username, this.password).subscribe({
+    this.authenticationService.login(this.email, this.password).subscribe({
       next: () => {
         this.router.navigate(["/"])
       },

@@ -1,11 +1,8 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { switchMap, Observable, of, throwError } from 'rxjs';
 import { environment } from '@env/environment';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
 @Injectable({
   providedIn: 'root'
 })
@@ -14,17 +11,23 @@ export class AuthenticationService {
   private isAuthenticatedDispatcher: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private http: HttpClient) {
-    this.AUTH_API =  `${environment.API_URL}/users`;
+    this.AUTH_API = `${environment.API_URL}/users`;
   }
 
-  login(username: string, password: string): Observable<any> {
-    if (username == "user") {
-      localStorage.setItem("isAuthenticated", "true");
-      this.emitIsAuthenticated(true);
-      return of("success");
-    } else {
-      return throwError(() => "failure");
-    }
+  login(email: string, password: string): Observable<any> {
+    return this.http.get<any[]>(this.AUTH_API)
+      .pipe(switchMap(users => {
+        const foundUser = users.find((u) => u.email == email && u.password == password);
+        if (foundUser) {
+          localStorage.setItem("isAuthenticated", "true");
+          localStorage.setItem("uid", foundUser.id);
+          this.emitIsAuthenticated(true);
+          return of("success");
+        }
+        else {
+          return throwError(() => "failure");
+        }
+      }));
   }
 
   logout(): Observable<any> {
