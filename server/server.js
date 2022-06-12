@@ -9,12 +9,13 @@ const app = express()
 const router = express.Router()
 require('./routes/routes')(router, {});
 let corsOptions = {};
-// console.log(process.env.DEVELOPMENT)
-// if (process.env.DEVELOPMENT === "true") {
-//     corsOptions = {
-//         origin: '*',
-//     }
-// }
+// not completed
+// @todo make sure cors blocked in production
+if (process.env.DEVELOPMENT === "true") {
+    corsOptions = {
+        origin: '*',
+    }
+}
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
