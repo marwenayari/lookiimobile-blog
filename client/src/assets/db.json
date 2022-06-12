@@ -20,11 +20,12 @@
       "image": "https://miro.medium.com/max/1400/1*0nreXrS0GVNOxEh7-zSQbQ.jpeg",
       "title": "Hello world",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "author": "0",
+      "author": "1",
       "comments": [
         {
-          "id": "0",
-          "author": "0",
+          "id": "1",
+          "authorId": "1",
+          "authorName": "Marwen Ayari",
           "createdAt": "1654987435579",
           "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"
         }
@@ -39,8 +40,9 @@
       "author": "1",
       "comments": [
         {
-          "id": "0",
-          "author": "0",
+          "id": "1",
+          "author": "2",
+          "authorName": "Marwen Two",
           "createdAt": "1654987435579",
           "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"
         }
@@ -51,7 +53,7 @@
       "image": "https://miro.medium.com/max/1400/1*shLaDTi2v-4untYYBrawaw.png",
       "title": "Helo",
       "description": "qsfdqsf",
-      "author": "1",
+      "author": "2",
       "comments": [],
       "id": "sDRjytv"
     },
@@ -60,7 +62,7 @@
       "image": "https://miro.medium.com/max/1400/1*shLaDTi2v-4untYYBrawaw.png",
       "title": "qsf",
       "description": "qssq",
-      "author": null,
+      "author": 2,
       "comments": [],
       "id": "qZ2PSSP"
     },
@@ -69,7 +71,7 @@
       "image": "https://miro.medium.com/max/1400/1*shLaDTi2v-4untYYBrawaw.png",
       "title": "Testtt",
       "description": "sdgdqs",
-      "author": "0",
+      "author": "2",
       "comments": [],
       "id": "KrafM4x"
     },
@@ -79,7 +81,7 @@
       "image": "https://miro.medium.com/max/1400/1*shLaDTi2v-4untYYBrawaw.png",
       "title": "Hello last article",
       "description": "Hello last article",
-      "author": "0",
+      "author": "2",
       "comments": []
     }
   ]
