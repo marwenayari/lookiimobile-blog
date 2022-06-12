@@ -1,1 +1,29 @@
-<p>article-details works!</p>
+<section class="article-details">
+    <div class="container">
+        <ng-container *ngIf="errorMessage; else content">
+            <div class="error">{{ errorMessage }}</div>
+        </ng-container>
+        <ng-template #content>
+            <div class="content">
+                <img [src]="article.image" alt="" srcset="">
+                <p>{{ article.title }}</p>
+                <p>{{ article.description }}</p>
+                <p>{{ article.author }}</p>
+            </div>
+            <section class="comments">
+                <div *ngFor="let comment of article.comments">
+                    <div class="comment-header">
+                        <div class="author">{{ comment.author }}</div>
+                        <span class="time">{{ article.createdAt | date :'short' }}</span>
+                    </div>
+                    <div class="comment-body">
+                        <span class="delete">Delete comment</span>
+                        <div class="description">{{ comment.description }}</div>
+                    </div>
+                    <textarea pInputTextarea class="comment-area"></textarea>
+                    <button pButton type="button" (click)="sendComment()">submit</button>
+                </div>
+            </section>
+        </ng-template>
+    </div>
+</section>

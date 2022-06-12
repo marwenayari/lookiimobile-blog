@@ -1,0 +1,55 @@
+.article-details {
+    display: flex;
+    justify-content: center;
+
+    .container {
+        max-width: 80%;
+
+        img {
+            width: 100%;
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .comments {
+            .comment-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 10px 0;
+
+                .time {
+                    color: lightslategray;
+                }
+            }
+
+            .comment-body {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin: 10px 0;
+
+                .delete {
+                    cursor: pointer;
+                    color: lightblue;
+                }
+
+                .description {
+                    padding: 10px;
+                    margin-left: 10px;
+                    width: 100%;
+                    background-color: whitesmoke;
+                }
+
+            }
+
+            .comment-area {
+                width: 100%;
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
