@@ -1,0 +1,19 @@
+.add-article {
+    .container {
+        .content {
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+
+                &.submit {
+                    background-color: #347ab7;
+                    border: none;
+                    width: 100px;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

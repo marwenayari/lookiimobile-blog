@@ -1,1 +1,12 @@
-<p>add-article works!</p>
+<section class="add-article">
+    <div class="container">
+        <div class="content">
+            <span class="p-float-label">
+                <input id="float-input" type="text" pInputText [(ngModel)]="title"> 
+                <label for="float-input">Title</label>
+            </span>
+            <textarea pInputTextarea rows="10" [(ngModel)]="description"></textarea>
+            <input pButton (click)="addArticle()" value="Submit">
+        </div>
+    </div>
+</section>
