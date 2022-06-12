@@ -1,1 +1,25 @@
-<p>articles-list works!</p>
+<div class="articles-list">
+    <ng-container *ngIf="errorMessage; else list">
+        <div>{{ errorMessage }}</div>
+    </ng-container>
+    <ng-template #list>
+        <div *ngFor="let article of articles">
+            <p-card styleClass="p-card-shadow">
+                <ng-template pTemplate="header">
+                    <img class="thumbnail" (click)="showDetails(article.id)" alt="Card" [src]="article.image">
+                </ng-template>
+                <div class="p-card-title">{{ article.title }}</div>
+                <div class="p-card-subtitle" (click)="showDetails(article.id)">{{ article.createdAt | date :'short' }}
+                </div>
+                <p class="description" (click)="showDetails(article.id)">
+                    {{ (article.description.length > 1000)? (article.description | slice:0:1000)+'...'
+                    :(article.description) }}
+                </p>
+                <p (click)="showDetails(article.id)" class="comments">Comments : {{ article.comments.length }}</p>
+                <ng-template pTemplate="footer">
+                    <span class="author" (click)="showAuthors()">{{ article.author }}</span>
+                </ng-template>
+            </p-card>
+        </div>
+    </ng-template>
+</div>

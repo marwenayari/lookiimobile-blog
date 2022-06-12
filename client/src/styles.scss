@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .container {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+    }
+
+    .error {
+        text-align: center;
+        font-size: 18px;
+        color: red;
+    }
+}
+
+.p-menubar {
+    border: none;
+    border-radius: O;
+}
