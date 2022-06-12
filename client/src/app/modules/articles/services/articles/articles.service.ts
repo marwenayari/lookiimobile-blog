@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from '@env/environment';
-import { retry, catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Article } from '@articles/models/article';
  
 @Injectable({
@@ -27,9 +27,9 @@ export class ArticlesService {
     return articles.sort((articleA: Article, articleB: Article) => articleB.createdAt.localeCompare(articleA.createdAt));
   }
 
-  getArticle(id: string): Observable<Article> {
+  getArticle(id: string): Observable<Article[]> {
     return this.http
-      .get<Article>(`${this.ENDPOINT}/${id}`)
+      .get<Article[]>(`${this.ENDPOINT}/${id}`)
   }
 
   addArticle(data: any): Observable<Article> {

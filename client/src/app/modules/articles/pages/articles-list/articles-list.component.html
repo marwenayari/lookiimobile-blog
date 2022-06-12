@@ -21,5 +21,10 @@
                 </ng-template>
             </p-card>
         </div>
+        <p-dialog header="Title" [(visible)]="showAuthorsModal">
+            <ul *ngFor="let author of authors">
+                <li>{{ author.displayName }}</li>
+            </ul>
+        </p-dialog>
     </ng-template>
 </div>
